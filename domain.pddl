@@ -25,15 +25,15 @@
         (location ?a ?c2)
         (free ?c1)
         (not (location ?a ?c1 ))
-         (not (free ?c2))
+        (not (free ?c2))
     )
   )
 
   (:action push
-    :parameters (?a - avatar ?b -box ?c1- case ?c2 - case ?c3 -case ?to - direction)
+    :parameters (?a - avatar ?b - box ?c1 - case ?c2 - case ?c3 - case ?to - direction)
     :precondition (and 
        (location ?a ?c1)
-       (location ?b ?c2)
+       (locationBox ?b ?c2)
        (connexion ?c1 ?c2 ?to)
        (connexion ?c2 ?c3 ?to)
        (free ?c3)
@@ -42,7 +42,9 @@
         (location ?a ?c2)
         (free ?c1)
         (not (location ?a ?c1 ))
-         (not (free ?c2))
+        (locationBox ?b ?c3)
+        (not (locationBox ?b ?c2 ))
+        (not (free ?c3))
     )
   )
 
